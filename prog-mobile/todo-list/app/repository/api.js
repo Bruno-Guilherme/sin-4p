@@ -1,8 +1,8 @@
 // api.js
 import axios from "axios";
 
-const APP_ID = "SUA_APP_ID";
-const REST_KEY = "SUA_REST_API_KEY";
+const APP_ID = "vI1XRoQoVLdyUSJpjC0vISa2RwiOPEJYwRcGOztQ";
+const REST_KEY = "vvlHRfkofwC53jdbjdqsdIqi3NYAzvmLBSOcmXZZ";
 const SERVER_URL = "https://parseapi.back4app.com";
 
 const api = axios.create({

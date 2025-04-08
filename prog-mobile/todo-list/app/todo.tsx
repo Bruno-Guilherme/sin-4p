@@ -24,21 +24,29 @@ export default function App() {
     fetchTodos();
   }, []);
 
-  const fetchTodos = async () => {
-    try {
-      const { data } = await api.get("/todos");
+  const fetchTodos = () => {
+    /* try {
+      const { data } = await api.get("/");
       setTodos(data.results);
     } catch (error) {
       console.error("Erro ao carregar tarefas:", error);
-    }
+    } */
+    api.get("/")
+      .then((response) => {
+        setTodos(response.data.results);
+      })
+      .catch((error) => {
+        console.error("Erro ao carregar tarefas:", error);
+      });
   };
+
 
   const handleAddTodo = async () => {
     const title = input.trim();
     if (!title) return;
 
     try {
-      await api.post("", { title, completed: false });
+      await api.post("/", { title, completed: false });
       setInput("");
       fetchTodos();
     } catch (error) {
