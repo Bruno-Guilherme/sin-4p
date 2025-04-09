@@ -8,7 +8,8 @@ import {
   StyleSheet,
   TouchableOpacity,
 } from "react-native";
-import api from "./repository/api";
+import api from "../repository/api";
+import { Ionicons } from "@expo/vector-icons";
 
 type Todo = {
   objectId: string;
@@ -77,7 +78,12 @@ export default function App() {
       <TouchableOpacity onPress={() => handleToggleComplete(item.objectId, item.completed)}>
         <Text style={item.completed ? styles.done : styles.text}>{item.title}</Text>
       </TouchableOpacity>
-      <Button title="🗑️" onPress={() => handleDeleteTodo(item.objectId)} />
+      <TouchableOpacity
+        style={styles.deleteButton}
+        onPress={() => handleDeleteTodo(item.objectId)}
+      >
+        <Ionicons name="trash" size={24} color="#fff" />
+      </TouchableOpacity>
     </View>
   );
 
@@ -92,7 +98,9 @@ export default function App() {
         placeholder="Nova tarefa"
       />
 
-      <Button title="Adicionar" onPress={handleAddTodo} />
+      <TouchableOpacity style={styles.button} onPress={handleAddTodo}>
+        <Text style={styles.buttonText}>Adicionar</Text>
+      </TouchableOpacity>
 
       <FlatList
         data={todos}
@@ -117,4 +125,23 @@ const styles = StyleSheet.create({
   text: { fontSize: 16 },
   done: { fontSize: 16, textDecorationLine: "line-through", color: "gray" },
   empty: { marginTop: 20, textAlign: "center", color: "#999" },
+  button: {
+    backgroundColor: "#25292e",
+    padding: 10,
+    borderRadius: 5,
+    alignItems: "center",
+    marginBottom: 10,
+  },
+  buttonText: {
+    color: "#fff",
+    fontWeight: "bold",
+    fontSize: 16,
+  },
+  deleteButton: {
+    backgroundColor: "#25292e",
+    padding: 10,
+    borderRadius: 5,
+    justifyContent: "center",
+    alignItems: "center",
+  },
 });
