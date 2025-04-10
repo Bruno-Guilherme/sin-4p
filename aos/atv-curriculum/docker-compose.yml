@@ -1,0 +1,30 @@
+services:
+  api:
+    build:
+      context: .
+    ports:
+      - 8080:8080
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      - POSTGRES_URL=jdbc:postgresql://db:5432/db_curriculum
+  db:
+    image: postgres
+    restart: always
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=db_curriculum
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=pass
+    ports:
+      - 5432:5432
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "admin", "-d", "db_curriculum"]
+      interval: 10s
+      timeout: 5s
+      retries: 10   
+      start_period: 20s
+volumes:
+  db-data:
