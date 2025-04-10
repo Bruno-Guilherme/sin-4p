@@ -9,6 +9,7 @@ services:
         condition: service_healthy
     environment:
       - POSTGRES_URL=jdbc:postgresql://db:5432/db_curriculum
+  
   db:
     image: postgres
     restart: always
@@ -24,7 +25,17 @@ services:
       test: ["CMD", "pg_isready", "-U", "admin", "-d", "db_curriculum"]
       interval: 10s
       timeout: 5s
-      retries: 10   
+      retries: 10
       start_period: 20s
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - "8081:8080"
+    depends_on:
+      db:
+        condition: service_healthy
+
 volumes:
   db-data:
