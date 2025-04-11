@@ -17,6 +17,10 @@ public class Curriculum {
         this.description = description;
     }
 
+    public Long getId() {
+        return id;
+    }
+    
     public String getFullname() {
         return fullname;
     }
@@ -49,5 +53,7 @@ public class Curriculum {
         this.description = description;
     }
 
-   
+    public void setId(Long id) {
+        this.id = id;
+    }
 }
