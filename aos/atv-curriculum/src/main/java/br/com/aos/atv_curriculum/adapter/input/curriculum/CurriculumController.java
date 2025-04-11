@@ -1,10 +1,12 @@
-package br.com.aos.atv_curriculum.adapter.input.controller.;
+package br.com.aos.atv_curriculum.adapter.input.curriculum;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import br.com.aos.atv_curriculum.application.ports.input.CreateCurriculumPort;
 
 @RestController
 @RequestMapping("/api/v1/curriculum")
@@ -20,8 +22,8 @@ public class CurriculumController {
 
     @GetMapping
     public ResponseEntity<Void> create(@RequestBody RequestCurriculumDTO request) {
-        var curriculumDomain = curriculumMapper.toDomain(request);
-        createCurriculumPort.save(curriculumDomain);
+        var curriculumDomain = mapperCurriculum.toDomain(request);
+        createCurriculumPort.create(curriculumDomain);
         return ResponseEntity.ok().build();
     }
 }
