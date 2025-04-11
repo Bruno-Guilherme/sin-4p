@@ -9,4 +9,13 @@ public class CurriculumMapper {
         entity.setDescription(dto.description());
         return entity;
     }
+
+    public Curriculum toDomain(RequestCurriculumDTO dto) {
+        var domain = new Curriculum();
+
+        domain.setFullname(dto.fullname());
+        domain.setEmail(dto.email());
+        domain.setPhoneNumber(dto.phoneNumber());
+        domain.setDescription(dto.description());
+    }
 }
