@@ -17,4 +17,16 @@ public class MapperCurriculumEntity {
 
         return entity;
     }
+
+    public Curriculum toDomain(EntityCurriculum entity) {
+        var curriculum = new Curriculum();
+
+        curriculum.setId(entity.getId());
+        curriculum.setFullname(entity.getFullname());
+        curriculum.setEmail(entity.getEmail());
+        curriculum.setPhoneNumber(entity.getPhoneNumber());
+        curriculum.setDescription(entity.getDescription());
+
+        return curriculum;
+    }
 }
