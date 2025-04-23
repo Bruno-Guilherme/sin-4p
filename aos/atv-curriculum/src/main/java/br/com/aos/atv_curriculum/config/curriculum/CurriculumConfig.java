@@ -1,7 +1,10 @@
 package br.com.aos.atv_curriculum.config.curriculum;
 
 import br.com.aos.atv_curriculum.adapter.output.curriculum.GetAllCurriculumsAdapter;
+import br.com.aos.atv_curriculum.adapter.output.curriculum.GetCurriculumByIdAdapter;
 import br.com.aos.atv_curriculum.application.core.usecase.curriculum.GetAllCurriculumsUseCase;
+import br.com.aos.atv_curriculum.application.core.usecase.curriculum.GetCurriculumByIdUseCase;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -22,5 +25,12 @@ public class CurriculumConfig {
     public GetAllCurriculumsUseCase getAllCurriculumsUseCase(
             GetAllCurriculumsAdapter getAllCurriculumsAdapter) {
         return new GetAllCurriculumsUseCase(getAllCurriculumsAdapter);
+    }
+
+    @Bean
+    public GetCurriculumByIdUseCase getCurriculumByIdUseCase(
+        GetCurriculumByIdAdapter getCurriculumByIdAdapter
+    ) {
+        return new GetCurriculumByIdUseCase(getCurriculumByIdAdapter);
     }
 }
