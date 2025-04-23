@@ -2,7 +2,6 @@ package br.com.aos.atv_curriculum.adapter.output.curriculum;
 
 import br.com.aos.atv_curriculum.application.core.domain.Curriculum;
 import br.com.aos.atv_curriculum.application.ports.output.curriculum.GetCurriculumByIdOutputPort;
-import br.com.aos.atv_curriculum.config.curriculum.exceptions.CurriculumNotFoundException;
 import org.springframework.stereotype.Component;
 
 import java.util.Optional;
