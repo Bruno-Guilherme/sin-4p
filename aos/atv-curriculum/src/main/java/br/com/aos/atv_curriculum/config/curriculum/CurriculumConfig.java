@@ -1,26 +1,41 @@
 package br.com.aos.atv_curriculum.config.curriculum;
 
-import br.com.aos.atv_curriculum.adapter.output.curriculum.GetAllCurriculumsAdapter;
-import br.com.aos.atv_curriculum.application.core.usecase.curriculum.GetAllCurriculumsUseCase;
+import br.com.aos.atv_curriculum.adapter.output.curriculum.*;
+import br.com.aos.atv_curriculum.application.core.usecase.curriculum.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import br.com.aos.atv_curriculum.adapter.output.curriculum.CreateCurriculumAdapter;
-import br.com.aos.atv_curriculum.application.core.usecase.curriculum.CreateCurriculumUseCase;
-
 @Configuration
 public class CurriculumConfig {
-    
+
     @Bean
     public CreateCurriculumUseCase createCurriculumUseCase(
-        CreateCurriculumAdapter repositoryCurriculum
-    ) {
-        return new CreateCurriculumUseCase(repositoryCurriculum);
+            CreateCurriculumAdapter createCurriculumAdapter) {
+        return new CreateCurriculumUseCase(createCurriculumAdapter);
     }
 
     @Bean
     public GetAllCurriculumsUseCase getAllCurriculumsUseCase(
             GetAllCurriculumsAdapter getAllCurriculumsAdapter) {
         return new GetAllCurriculumsUseCase(getAllCurriculumsAdapter);
+    }
+
+    @Bean
+    public GetByIdCurriculumUseCase getCurriculumByIdUseCase(
+        GetByIdCurriculumAdapter getCurriculumByIdAdapter) {
+        return new GetByIdCurriculumUseCase(getCurriculumByIdAdapter);
+    }
+
+    @Bean
+    public UpdateCurriculumUseCase updateCurriculumUseCase(
+            GetByIdCurriculumAdapter getByIdCurriculumAdapter,
+            UpdateCurriculumAdapter updateCurriculumAdapter) {
+        return new UpdateCurriculumUseCase(getByIdCurriculumAdapter, updateCurriculumAdapter);
+    }
+
+    @Bean
+    public DeleteCurriculumUseCase deleteCurriculumUseCase(
+            DeleteCurriculumAdapter deleteCurriculumAdapter) {
+        return new DeleteCurriculumUseCase(deleteCurriculumAdapter);
     }
 }
