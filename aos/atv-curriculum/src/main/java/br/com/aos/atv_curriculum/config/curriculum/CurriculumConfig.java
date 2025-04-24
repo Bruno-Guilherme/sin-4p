@@ -19,23 +19,4 @@ public class CurriculumConfig {
             GetAllCurriculumsAdapter getAllCurriculumsAdapter) {
         return new GetAllCurriculumsUseCase(getAllCurriculumsAdapter);
     }
-
-    @Bean
-    public GetByIdCurriculumUseCase getCurriculumByIdUseCase(
-        GetByIdCurriculumAdapter getCurriculumByIdAdapter) {
-        return new GetByIdCurriculumUseCase(getCurriculumByIdAdapter);
-    }
-
-    @Bean
-    public UpdateCurriculumUseCase updateCurriculumUseCase(
-            GetByIdCurriculumAdapter getByIdCurriculumAdapter,
-            UpdateCurriculumAdapter updateCurriculumAdapter) {
-        return new UpdateCurriculumUseCase(getByIdCurriculumAdapter, updateCurriculumAdapter);
-    }
-
-    @Bean
-    public DeleteCurriculumUseCase deleteCurriculumUseCase(
-            DeleteCurriculumAdapter deleteCurriculumAdapter) {
-        return new DeleteCurriculumUseCase(deleteCurriculumAdapter);
-    }
 }
