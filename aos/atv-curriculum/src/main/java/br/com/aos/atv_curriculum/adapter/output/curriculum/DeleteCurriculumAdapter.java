@@ -1,7 +1,10 @@
 package br.com.aos.atv_curriculum.adapter.output.curriculum;
 
+import org.springframework.stereotype.Component;
+
 import br.com.aos.atv_curriculum.application.ports.output.curriculum.DeleteCurriculumOutputPort;
 
+@Component
 public class DeleteCurriculumAdapter implements DeleteCurriculumOutputPort {
 
     private final RepositoryCurriculum repository;

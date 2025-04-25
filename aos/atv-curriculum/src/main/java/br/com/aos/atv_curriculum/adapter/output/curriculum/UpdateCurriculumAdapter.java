@@ -1,8 +1,11 @@
 package br.com.aos.atv_curriculum.adapter.output.curriculum;
 
+import org.springframework.stereotype.Component;
+
 import br.com.aos.atv_curriculum.application.core.domain.Curriculum;
 import br.com.aos.atv_curriculum.application.ports.output.curriculum.UpdateCurriculumOutputPort;
 
+@Component
 public class UpdateCurriculumAdapter implements UpdateCurriculumOutputPort {
 
     private final RepositoryCurriculum repository;
