@@ -1,11 +1,11 @@
 package br.com.aos.atv_curriculum.application.core.usecase.curriculum;
 
 import br.com.aos.atv_curriculum.application.core.domain.Curriculum;
-import br.com.aos.atv_curriculum.application.ports.input.CurriculumUpdateInputPort;
+import br.com.aos.atv_curriculum.application.ports.input.UpdateCurriculumInputPort;
 import br.com.aos.atv_curriculum.application.ports.output.curriculum.GetByIdCurriculumOutputPort;
 import br.com.aos.atv_curriculum.application.ports.output.curriculum.UpdateCurriculumOutputPort;
 
-public class UpdateCurriculumUseCase implements CurriculumUpdateInputPort {
+public class UpdateCurriculumUseCase implements UpdateCurriculumInputPort {
 
     private final GetByIdCurriculumOutputPort getByIdCurriculumOutputPort;
     private final UpdateCurriculumOutputPort repository;

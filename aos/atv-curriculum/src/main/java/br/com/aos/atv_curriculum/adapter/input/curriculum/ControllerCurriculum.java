@@ -7,37 +7,24 @@ import br.com.aos.atv_curriculum.application.core.domain.Curriculum;
 
 import br.com.aos.atv_curriculum.application.ports.input.CreateCurriculumPort;
 import br.com.aos.atv_curriculum.application.ports.input.GetAllCurriculumsInputPort;
-import br.com.aos.atv_curriculum.application.ports.input.GetByIdCurriculumsInputPort;
-import br.com.aos.atv_curriculum.application.ports.input.CurriculumUpdateInputPort;
+import br.com.aos.atv_curriculum.application.ports.input.GetByIdCurriculumInputPort;
+import br.com.aos.atv_curriculum.application.ports.input.UpdateCurriculumInputPort;
+import lombok.RequiredArgsConstructor;
 import br.com.aos.atv_curriculum.application.ports.input.DeleteCurriculumInputPort;
 
 import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/curriculum")
-public class CurriculumController {
+@RequiredArgsConstructor
+public class ControllerCurriculum {
     private final CreateCurriculumPort createCurriculumPort;
     private final GetAllCurriculumsInputPort getAllCurriculumsInputPort;
-    private final GetByIdCurriculumsInputPort getByIdCurriculumsInputPort;
-    private final CurriculumUpdateInputPort updateCurriculumPort;
+    private final GetByIdCurriculumInputPort getByIdCurriculumInputPort;
+    private final UpdateCurriculumInputPort updateCurriculumPort;
     private final DeleteCurriculumInputPort deleteCurriculumPort;
 
     private final MapperCurriculum mapperCurriculum;
-
-    public CurriculumController(
-            CreateCurriculumPort createCurriculumPort,
-            GetAllCurriculumsInputPort getAllCurriculumsInputPort,
-            GetByIdCurriculumsInputPort getByIdCurriculumsInputPort,
-            CurriculumUpdateInputPort updateCurriculumPort,
-            DeleteCurriculumInputPort deleteCurriculumPort,
-            MapperCurriculum mapperCurriculum) {
-        this.createCurriculumPort = createCurriculumPort;
-        this.getAllCurriculumsInputPort = getAllCurriculumsInputPort;
-        this.getByIdCurriculumsInputPort = getByIdCurriculumsInputPort;
-        this.updateCurriculumPort = updateCurriculumPort;
-        this.deleteCurriculumPort = deleteCurriculumPort;
-        this.mapperCurriculum = mapperCurriculum;
-    }
 
     @PostMapping
     public ResponseEntity<Void> create(@RequestBody RequestCurriculumDTO request) {
@@ -54,7 +41,7 @@ public class CurriculumController {
 
     @GetMapping("/{id}")
     public ResponseEntity<Curriculum> getById(@PathVariable Long id) {
-        var curriculum = getByIdCurriculumsInputPort.getById(id);
+        var curriculum = getByIdCurriculumInputPort.getById(id);
 
         if (curriculum.isPresent()) {
             return ResponseEntity.ok(curriculum.get());

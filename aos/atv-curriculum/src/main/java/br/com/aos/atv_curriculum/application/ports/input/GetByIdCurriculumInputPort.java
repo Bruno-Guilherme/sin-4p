@@ -4,7 +4,7 @@ import java.util.Optional;
 
 import br.com.aos.atv_curriculum.application.core.domain.Curriculum;
 
-public interface GetByIdCurriculumsInputPort {
+public interface GetByIdCurriculumInputPort {
     
     public Optional<Curriculum> getById(Long id);
 }

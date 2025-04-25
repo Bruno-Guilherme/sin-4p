@@ -21,10 +21,10 @@ public class CurriculumConfig {
     }
 
     @Bean
-    public GetCurriculumByIdUseCase getCurriculumByIdUseCase(
-        GetCurriculumByIdAdapter getCurriculumByIdAdapter
+    public GetByIdCurriculumUseCase getByIdCurriculumUseCase(
+        GetByIdCurriculumAdapter getByIdCurriculumAdapter
     ) {
-        return new GetCurriculumByIdUseCase(getCurriculumByIdAdapter);
+        return new GetByIdCurriculumUseCase(getByIdCurriculumAdapter);
     }
 
     @Bean
@@ -34,8 +34,8 @@ public class CurriculumConfig {
 
     @Bean
     public DeleteCurriculumUseCase deleteCurriculumByIdUseCase(
-        DeleteCurriculumAdapter deleteCurriculumByIdAdapter
+        DeleteCurriculumAdapter deleteCurriculumdAdapter
     ) {
-        return new GetCurriculumByIdUseCase(deleteCurriculumByIdAdapter);
+        return new DeleteCurriculumUseCase(deleteCurriculumdAdapter);
     }
 }
