@@ -18,11 +18,15 @@ public class UpdateCurriculumAdapter implements UpdateCurriculumOutputPort {
 
     @Override
     public void update(Curriculum curriculum) {
-        if (repository.findById(curriculum.getId()).isPresent()) {
-            var curriculumEntity = mapper.toEntity(curriculum);
-            repository.save(curriculumEntity);
-        } else {
-            throw new IllegalArgumentException("Curriculum not found with ID: " + curriculum.getId());
-        }
+        repository.findById(curriculum.getId())
+            .map(entity -> {
+                entity.setDescription(curriculum.getDescription());
+                entity.setEmail(curriculum.getEmail());
+                entity.setFullname(curriculum.getFullname());
+                entity.setPhoneNumber(curriculum.getPhoneNumber());
+
+                return repository.save(entity);
+            }).orElseThrow(() -> 
+                new IllegalArgumentException("Curriculum not found with ID: " + curriculum.getId()));
     }
 }

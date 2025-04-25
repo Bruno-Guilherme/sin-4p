@@ -17,7 +17,7 @@ public class UpdateCurriculumUseCase implements UpdateCurriculumInputPort {
 
     @Override
     public void update(Curriculum curriculum) {
-        var entity = getByIdCurriculumOutputPort.getById(curriculum.getId())
+        getByIdCurriculumOutputPort.getById(curriculum.getId())
                 .orElseThrow(() -> new IllegalArgumentException("Curriculum not found"));
         repository.update(curriculum);
     }
