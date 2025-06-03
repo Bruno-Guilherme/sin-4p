@@ -7,7 +7,7 @@ export default function Projetos() {
       <Text style={styles.title}>Projetos</Text>
       <View style={styles.itemContainer}>
         <Text style={styles.itemTitle}>Currículo App (Este Projeto)</Text>
-        <TouchableOpacity onPress={() => Linking.openURL('https://github.com/seu-usuario/CurriculoAppReactNative')}>
+        <TouchableOpacity onPress={() => Linking.openURL('https://github.com/Bruno-Guilherme/sin-4p/tree/main/prog-mobile/curriculo-appp')}>
           <Text style={styles.link}>Repositório GitHub</Text>
         </TouchableOpacity>
       </View>
@@ -17,15 +17,6 @@ export default function Projetos() {
           <Text style={styles.link}>Repositório GitHub</Text>
         </TouchableOpacity>
       </View>
-      <View style={styles.itemContainer}>
-        <Text style={styles.itemTitle}>Análise de Previsão de Acidentes</Text>
-        <TouchableOpacity onPress={() => Linking.openURL('https://github.com/seu-usuario/PrevisaoAcidentes')}>
-          <Text style={styles.link}>Repositório GitHub</Text>
-        </TouchableOpacity>
-      </View>
-      {/* Exemplo real 1: Projeto de previsão de acidentes usando Python e Pandas.
-          Exemplo real 2: WeParty, um sistema de serviços para eventos com Node.js e React.
-          Associação: Projetos em um portfólio funcionam como demonstrações de casos de uso, semelhantes a estudos de caso em consultoria. */}
     </ScrollView>
   );
 }
